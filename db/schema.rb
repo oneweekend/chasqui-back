@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(version: 2018_04_28_232239) do
   enable_extension "plpgsql"
 
   create_table "chasquis", force: :cascade do |t|
-    t.string "email", default: "luis@chasqui.com", null: false
-    t.string "name", default: "Luis Felipe Sanchez", null: false
-    t.integer "phone", default: 999666333, null: false
+    t.string "email"
+    t.string "name"
+    t.integer "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_chasquis_on_email", unique: true
   end
 
   create_table "locations", force: :cascade do |t|
