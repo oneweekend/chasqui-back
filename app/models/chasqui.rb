@@ -1,0 +1,2 @@
+class Chasqui < ApplicationRecord
+end
