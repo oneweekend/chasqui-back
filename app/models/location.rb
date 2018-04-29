@@ -6,7 +6,9 @@ class Location < ApplicationRecord
 
   validates_presence_of :latitude, :longitude
 
+  after_create :broadcast
+
   def broadcast
-    ActionCable.server.broadcast 'feed_channel', 'test'
+    ActionCable.server.broadcast 'locations_channel', self
   end
 end
