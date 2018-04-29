@@ -8,6 +8,8 @@ class Location < ApplicationRecord
 
   after_create :broadcast
 
+  scope :latest, -> { where(id: group(:user_id).pluck('MAX(id)')) }
+
   def broadcast
     ActionCable.server.broadcast 'locations_channel', self
   end

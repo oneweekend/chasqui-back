@@ -1,9 +1,13 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show, :update, :destroy]
+  before_action :set_location, only: :show
 
   # GET /locations
   def index
-    @locations = Location.all
+    if params[:user_id]
+      @locations = User.find(params[:user_id]).locations
+    else
+      @locations = Location.latest
+    end
 
     render json: @locations
   end
@@ -24,23 +28,12 @@ class LocationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /locations/1
-  def update
-    if @location.update(location_params)
-      render json: @location
-    else
-      render json: @location.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /locations/1
-  def destroy
-    @location.destroy
-  end
-
   private
 
-  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
   def set_location
     @location = Location.find(params[:id])
   end
