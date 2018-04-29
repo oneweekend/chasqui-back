@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   # POST /users/:user_email/sessions
   def create
-    @session = Session.new(session_params)
+    @session = Session.find_or_create_by(session_params)
 
     if @session.save
       render json: @session, status: :created, location: @session
