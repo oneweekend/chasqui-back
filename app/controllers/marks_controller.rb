@@ -24,15 +24,6 @@ class MarksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /marks/1
-  def update
-    if @mark.update(mark_params)
-      render json: @mark
-    else
-      render json: @mark.errors, status: :unprocessable_entity
-    end
-  end
-
   # DELETE /marks/1
   def destroy
     @mark.destroy
