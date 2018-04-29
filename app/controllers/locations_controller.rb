@@ -3,11 +3,7 @@ class LocationsController < ApplicationController
 
   # GET /locations
   def index
-    if params[:user_id]
-      @locations = User.find(params[:user_id]).locations
-    else
-      @locations = Location.latest
-    end
+    @locations = User.all
 
     render json: @locations
   end

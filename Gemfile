@@ -24,6 +24,7 @@ gem 'puma', '~> 3.11'
 gem 'active_model_serializers'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'factory_bot_rails'
 gem 'geocoder'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS),

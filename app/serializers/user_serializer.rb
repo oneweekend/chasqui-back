@@ -1,3 +1,3 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :type, :latitude, :longitude, :phone, :activity_status, :name
+  attributes :id, :type, :latitude, :longitude, :phone, :activity_status, :name, :kind
 end
