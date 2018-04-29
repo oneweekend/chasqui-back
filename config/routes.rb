@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :locations
   end
 
+  resources :locations
   resources :chasquis
 
   resources :marks, only: %i[index create show destroy]
