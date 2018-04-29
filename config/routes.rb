@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   end
 
   resources :locations, only: %i[show index]
+
   resources :chasquis, only: %i[show index]
+  resources :services, only: %i[show index]
 
   resources :marks, only: %i[index create show destroy]
   resources :requests, only: %i[index create show]

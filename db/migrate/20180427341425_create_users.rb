@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :name, null: false, default: 'Luis Felipe Sanchez'
       t.integer :phone, null: false, default: '999666333'
       t.string :activity_status, null: false, default: 'active'
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end

@@ -13,17 +13,6 @@ class ChasquisController < ApplicationController
     render json: @chasqui
   end
 
-  # POST /chasquis
-  def create
-    @chasqui = Chasqui.new(chasqui_params)
-
-    if @chasqui.save
-      render json: @chasqui, status: :created, location: @chasqui
-    else
-      render json: @chasqui.errors, status: :unprocessable_entity
-    end
-  end
-
   # PATCH/PUT /chasquis/1
   def update
     if @chasqui.update(chasqui_params)
@@ -31,11 +20,6 @@ class ChasquisController < ApplicationController
     else
       render json: @chasqui.errors, status: :unprocessable_entity
     end
-  end
-
-  # DELETE /chasquis/1
-  def destroy
-    @chasqui.destroy
   end
 
   private

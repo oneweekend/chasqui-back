@@ -20,15 +20,11 @@ fiorella =  Chasqui.create(name: 'Joissy Fiorella',
                            phone: '986754231')
 
 locations = [
-  Location.new(user: luis, address: 'Av Carlos Valderrama 787, Trujillo, Peru'),
-  Location.new(user: karina, address: 'Av Teodoro Valcarcel 126, Trujillo, Peru'),
-  Location.new(user: katherine, address: 'Alomias Robles 220, Trujillo, Peru'),
-  Location.new(user: cinthia, address: 'Marco del Pont 338, Trujillo, Peru'),
-  Location.new(user: fiorella, address: 'Av Ejercito 168, Trujillo, Peru')
+  Location.create(user: luis, latitude: -8.0992328, longitude: -79.0336523).reverse_geocode,
+  Location.create(user: karina, latitude: -8.1014702, longitude: -79.0347916).reverse_geocode,
+  Location.create(user: katherine, latitude: -8.10716489, longitude: -79.0222086).reverse_geocode,
+  Location.create(user: cinthia, latitude: -8.0779395, longitude: -79.00493377).reverse_geocode,
+  Location.create(user: fiorella, latitude: -8.1052745, longitude: -79.0235719).reverse_geocode
 ]
 
-locations.each do |location|
-  location.geocode
-  sleep 1
-  location.save
-end
+locations.each(&:save)
