@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_29_013129) do
+ActiveRecord::Schema.define(version: 2018_04_29_045357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alerts", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.float "latitude"
@@ -23,6 +30,22 @@ ActiveRecord::Schema.define(version: 2018_04_29_013129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "marks", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -43,5 +66,6 @@ ActiveRecord::Schema.define(version: 2018_04_29_013129) do
   end
 
   add_foreign_key "locations", "users"
+  add_foreign_key "requests", "users"
   add_foreign_key "sessions", "users"
 end

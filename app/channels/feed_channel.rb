@@ -6,4 +6,8 @@ class FeedChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
+
+  def receive
+    ActionCable.server.broadcast('feed_channel', 2314)
+  end
 end
