@@ -20,19 +20,15 @@ fiorella =  Chasqui.create(name: 'Joissy Fiorella',
                            phone: '986754231')
 
 locations = [
-  Location.new(user: luis,
-               address: 'Av Carlos Valderrama 787, Trujillo 13001, Peru'),
-  Location.new(user: karina,
-               address: 'Av Teodoro Valcarcel 126, Trujillo, Peru'),
-  Location.new(user: katherine,
-               address: 'Alomias Robles 220, Trujillo 13001, Peru'),
-  Location.new(user: cinthia,
-               address: 'Marco del Pont 338, Trujillo, Peru'),
-  Location.new(user: fiorella,
-               address: 'Av Ejercito 168, Trujillo, Peru')
+  Location.new(user: luis, address: 'Av Carlos Valderrama 787, Trujillo, Peru'),
+  Location.new(user: karina, address: 'Av Teodoro Valcarcel 126, Trujillo, Peru'),
+  Location.new(user: katherine, address: 'Alomias Robles 220, Trujillo, Peru'),
+  Location.new(user: cinthia, address: 'Marco del Pont 338, Trujillo, Peru'),
+  Location.new(user: fiorella, address: 'Av Ejercito 168, Trujillo, Peru')
 ]
 
 locations.each do |location|
   location.geocode
+  sleep 1
   location.save
 end
