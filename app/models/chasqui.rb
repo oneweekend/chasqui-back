@@ -1,4 +1,4 @@
-class Chasqui < ApplicationRecord
+class Chasqui < User
   has_many :locations
 
   def current_location
