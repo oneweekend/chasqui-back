@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :users do
-    resources :locations
+    resources :locations, only: %i[create index]
   end
 
-  resources :locations
-  resources :chasquis
+  resources :locations, only: %i[show index]
+  resources :chasquis, only: %i[show index]
 
   resources :marks, only: %i[index create show destroy]
   resources :requests, only: %i[index create show]

@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email, null: false, default: 'luis@chasqui.com'
       t.string :name, null: false, default: 'Luis Felipe Sanchez'
       t.integer :phone, null: false, default: '999666333'
+      t.string :activity_status, null: false, default: 'active'
 
       t.timestamps
     end

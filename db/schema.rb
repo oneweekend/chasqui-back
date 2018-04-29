@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_04_29_045357) do
     t.string "email", default: "luis@chasqui.com", null: false
     t.string "name", default: "Luis Felipe Sanchez", null: false
     t.integer "phone", default: 999666333, null: false
+    t.string "activity_status", default: "active", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
