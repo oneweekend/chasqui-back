@@ -1,19 +1,7 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :update, :destroy]
+  before_action :set_session, only: %i[show update destroy]
 
-  # GET /sessions
-  def index
-    @sessions = Session.all
-
-    render json: @sessions
-  end
-
-  # GET /sessions/1
-  def show
-    render json: @session
-  end
-
-  # POST /sessions
+  # POST /users/:user_email/sessions
   def create
     @session = Session.new(session_params)
 
@@ -24,28 +12,14 @@ class SessionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sessions/1
-  def update
-    if @session.update(session_params)
-      render json: @session
-    else
-      render json: @session.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /sessions/1
+  # DELETE /users/:user_email/session
   def destroy
     @session.destroy
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_session
-      @session = Session.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def session_params
-      params.require(:session).permit(:user_id)
-    end
+  def session_params
+    { user: User.find_by(email: params[:email]) }
+  end
 end
