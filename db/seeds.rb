@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 chasqui = Chasqui.create
 
-Location.create(chasqui: chasqui,
+Location.create(user: chasqui,
                 address: 'Av Carlos Valderrama 787, Trujillo 13001, Peru',
                 latitude: -8.0991656,
                 longitude: -79.0336536)
